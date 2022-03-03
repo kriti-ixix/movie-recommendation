@@ -22,8 +22,7 @@ def getTitle(index):
     return df[df.index==index]['title'].values[0]
 
 def getIndex(title):
-    return df[df.title==title]['index'].values[0]
-
+    return df[df.title.str.lower()==title.lower()]['index'].values[0]
 
 #User defined functions
 @app.route('/recommend', methods=['POST'])
